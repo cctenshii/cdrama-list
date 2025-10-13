@@ -44,3 +44,12 @@ Als gebruiker wil ik C-dramas kunnen beoordelen (sterren/rating) zodat ik mijn m
 Als gebruiker wil ik reacties kunnen achterlaten op dramas, zodat ik met andere gebruikers kan praten over de serie.
 
 Als gebruiker wil ik een overzichtspagina met mijn “stats” (zoals aantal bekeken dramas, gemiddelde rating, etc.), zodat ik inzicht krijg in mijn kijkgedrag.
+
+
+# 13-10-25
+## ERD
+### V1
+![ERD versie 1](images/PRG05-ERD_v1.jpg)
+
+### V2
+![ERD versie 2](images/PRG05-ERD_v2.png)
