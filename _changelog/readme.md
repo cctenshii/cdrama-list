@@ -51,5 +51,6 @@ Als gebruiker wil ik een overzichtspagina met mijn “stats” (zoals aantal bek
 ### V1
 ![ERD versie 1](images/PRG05-ERD_v1.jpg)
 
-### V2
+### V2 (met behulp van Antwan)
 ![ERD versie 2](images/PRG05-ERD_v2.png)
+
