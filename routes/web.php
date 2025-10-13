@@ -13,6 +13,10 @@ Route::get('home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 
 Route::get('cdramas/{id}', function (int $id) {

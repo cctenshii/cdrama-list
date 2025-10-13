@@ -1,13 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cdrama Index</title>
-</head>
-<body>
-<h1>Cdramas Index</h1>
-</body>
-</html>
+<x-app-layout>
+    <h1>This is the Cdramas Index Page</h1>
+</x-app-layout>
+
