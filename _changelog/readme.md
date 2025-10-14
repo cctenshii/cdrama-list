@@ -54,3 +54,9 @@ Als gebruiker wil ik een overzichtspagina met mijn “stats” (zoals aantal bek
 ### V2 (met behulp van Antwan)
 ![ERD versie 2](images/PRG05-ERD_v2.png)
 
+
+# 14-10-25
+## Database
+### Cdramas Tabel aangemaakt en gevuld
+![DB](images/DB-Cdramas-Table.png)
+![DB](images/DB-Cdramas-Table-Filled.png)
