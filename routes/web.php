@@ -19,11 +19,11 @@ Route::get('/about', function () {
 
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 
-Route::get('cdramas/{id}', function (int $id) {
-    return view('cdrama', [
-        'id' => $id
-    ]);
-})->name('cdramas-show');
+//Route::get('cdramas/{id}', function (int $id) {
+//    return view('cdrama', [
+//        'id' => $id
+//    ]);
+//})->name('cdramas-show');
 
 Route::resource('cdramas', CdramaController::class);
 
