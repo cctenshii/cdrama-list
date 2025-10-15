@@ -66,12 +66,15 @@ Als gebruiker wil ik een overzichtspagina met mijn “stats” (zoals aantal bek
 ![List](images/SS-List-View-Index.png)
 ![List](images/SS-List-Drama-View.png)
 
+
 # 15-10-25
 ## Create Form
 ### Formulier gemaakt en werkend
 ![CreateForm](images/SS-CreateForm.png)
 ![CreateForm](images/SS-CreateForm-Submitted.png)
 
+## Contact Form - Start
+![ContactForm](images/SS-ContactPage-Start.png)
 
 
 
