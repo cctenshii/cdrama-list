@@ -60,3 +60,10 @@ Als gebruiker wil ik een overzichtspagina met mijn “stats” (zoals aantal bek
 ### Cdramas Tabel aangemaakt en gevuld
 ![DB](images/DB-Cdramas-Table.png)
 ![DB](images/DB-Cdramas-Table-Filled.png)
+
+## List Overview
+### Cdramas uit database opgehaald en in website gezet + link naar overzicht per drama
+![List](images/SS-List-View-Index.png)
+![List](images/SS-List-Drama-View.png)
+
+
