@@ -1,49 +1,73 @@
 <x-app-layout>
-    <h1>Add a new Cdrama</h1>
-    <a href="{{ route('cdramas.index') }}">Go Back</a>
+    <div class="max-w-3xl mx-auto px-4 py-8">
 
-    <form method="POST" action="{{ route('cdramas.store') }}" enctype="multipart/form-data">
-        @csrf
+        <h1 class="text-3xl font-bold mb-4">Add a New CDrama</h1>
+        <a href="{{ route('cdramas.index') }}" class="text-blue-500 hover:underline mb-6 inline-block">
+            &larr; Go Back
+        </a>
 
-        <div>
-            <label for="name">Title:</label>
-            <input type="text" id="name" name="name" value="{{ old('name') }}">
-        </div>
+        <form method="POST" action="{{ route('cdramas.store') }}" enctype="multipart/form-data"
+              class="bg-white shadow-md rounded-lg p-6 space-y-4">
 
-        <div>
-            <label for="year">Release Year:</label>
-            <input type="text" id="year" name="year" value="{{ old('year') }}">
-        </div>
+            @csrf
 
-        <div>
-            <label for="episodes">Episodes:</label>
-            <input type="text" id="episodes" name="episodes" value="{{ old('episodes') }}">
-        </div>
+            {{-- Title --}}
+            <div>
+                <label class="block font-semibold mb-1" for="name">Title:</label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}"
+                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
 
-        <div>
-            <label for="genre_id">Genre:</label>
-            <select id="genre_id" name="genre_id">
-                <option value="">-- Select a Genre --</option>
-                @foreach($genres as $genre)
-                    <option value="{{ $genre->id }}" {{ old('genre_id') == $genre->id ? 'selected' : '' }}>
-                        {{ $genre->name }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
+            {{-- Release Year --}}
+            <div>
+                <label class="block font-semibold mb-1" for="year">Release Year:</label>
+                <input type="text" name="year" id="year" value="{{ old('year') }}"
+                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
 
-        <div>
-            <label for="summary">Summary:</label>
-            <textarea id="summary" name="summary">{{ old('summary') }}</textarea>
-        </div>
+            {{-- Episodes --}}
+            <div>
+                <label class="block font-semibold mb-1" for="episodes">Episodes:</label>
+                <input type="text" name="episodes" id="episodes" value="{{ old('episodes') }}"
+                       class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
 
-        <div>
-            <label for="image">Cdrama Image:</label>
-            <input type="file" id="image" name="image" accept="image/*">
-        </div>
+            {{-- Genre --}}
+            <div>
+                <label class="block font-semibold mb-1" for="genre_id">Genre:</label>
+                <select name="genre_id" id="genre_id"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">-- Select a Genre --</option>
+                    @foreach($genres as $genre)
+                        <option value="{{ $genre->id }}" {{ old('genre_id') == $genre->id ? 'selected' : '' }}>
+                            {{ $genre->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
-        <div>
-            <input type="submit" value="Add Cdrama">
-        </div>
-    </form>
+            {{-- Summary --}}
+            <div>
+                <label class="block font-semibold mb-1" for="summary">Summary:</label>
+                <textarea name="summary" id="summary" rows="4"
+                          class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">{{ old('summary') }}</textarea>
+            </div>
+
+            {{-- Image --}}
+            <div>
+                <label class="block font-semibold mb-1" for="image">CDrama Image:</label>
+                <input type="file" name="image" id="image" accept="image/*"
+                       class="w-full text-gray-600">
+            </div>
+
+            {{-- Submit --}}
+            <div>
+                <button type="submit"
+                        class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition">
+                    Add CDrama
+                </button>
+            </div>
+
+        </form>
+    </div>
 </x-app-layout>

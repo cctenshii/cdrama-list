@@ -1,23 +1,46 @@
 <x-app-layout>
-    <a href="{{ route('cdramas.index') }}" class="text-blue-500 hover:underline">Go Back</a>
+    <div class="max-w-4xl mx-auto px-4 py-8">
 
-    <div class="mt-6">
-        <h1 class="text-3xl font-bold mb-4">{{ $cdrama->name }}</h1>
+        {{-- Back link --}}
+        <a href="{{ route('cdramas.index') }}"
+           class="text-blue-500 hover:underline mb-6 inline-block">
+            &larr; Go Back
+        </a>
 
-        @if ($cdrama->image && file_exists(public_path('storage/' . $cdrama->image)))
-            <img src="{{ asset('storage/' . $cdrama->image) }}" alt="{{ $cdrama->name }}"
-                 class="w-64 h-auto rounded shadow mb-4">
-        @elseif (file_exists(public_path("images/{$cdrama->id}.jpg")))
-            <img src="{{ asset("images/{$cdrama->id}.jpg") }}" alt="{{ $cdrama->name }}"
-                 class="w-64 h-auto rounded shadow mb-4">
-        @else
-            <img src="{{ asset('images/placeholder.jpg') }}" alt="No image available"
-                 class="w-64 h-auto rounded opacity-70 mb-4">
-        @endif
+        {{-- Main content card --}}
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row gap-6 p-6">
 
-        <h2 class="text-xl">Release: {{ $cdrama->year }}</h2>
-        <h2 class="text-xl">Episodes: {{ $cdrama->episodes }}</h2>
-        <h2 class="text-xl">Genre: {{ $cdrama->genre->name ?? 'Unknown' }}</h2>
-        <p class="mt-2 text-gray-700">Summary: {{ $cdrama->summary }}</p>
+            {{-- Image --}}
+            <div class="flex-shrink-0">
+                @if ($cdrama->image && file_exists(public_path('storage/' . $cdrama->image)))
+                    <img src="{{ asset('storage/' . $cdrama->image) }}"
+                         alt="{{ $cdrama->name }}"
+                         class="w-64 h-auto md:h-96 object-cover rounded shadow">
+                @elseif (file_exists(public_path("images/{$cdrama->id}.jpg")))
+                    <img src="{{ asset("images/{$cdrama->id}.jpg") }}"
+                         alt="{{ $cdrama->name }}"
+                         class="w-64 h-auto md:h-96 object-cover rounded shadow">
+                @else
+                    <img src="{{ asset('images/placeholder.jpg') }}"
+                         alt="No image available"
+                         class="w-64 h-auto md:h-96 object-cover rounded opacity-70 shadow">
+                @endif
+            </div>
+
+            {{-- Text content --}}
+            <div class="flex-1 flex flex-col justify-between">
+                <h1 class="text-3xl font-bold mb-4">{{ $cdrama->name }}</h1>
+
+                <div class="space-y-2 mb-4">
+                    <p class="text-lg"><span class="font-semibold">Release:</span> {{ $cdrama->year }}</p>
+                    <p class="text-lg"><span class="font-semibold">Episodes:</span> {{ $cdrama->episodes }}</p>
+                    <p class="text-lg"><span class="font-semibold">Genre:</span> {{ $cdrama->genre->name ?? 'Unknown' }}
+                    </p>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">{{ $cdrama->summary }}</p>
+            </div>
+
+        </div>
     </div>
 </x-app-layout>

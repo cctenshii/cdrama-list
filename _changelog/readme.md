@@ -81,6 +81,19 @@ ik inzicht krijg in mijn kijkgedrag.
 ![List](images/SS-List-View-Index.png)
 ![List](images/SS-List-Drama-View.png)
 
+# 15-10-25
+
+## Create Form
+
+### Formulier gemaakt en werkend
+
+![CreateForm](images/SS-CreateForm.png)
+![CreateForm](images/SS-CreateForm-Submitted.png)
+
+## Contact Form - Start
+
+![ContactForm](images/SS-ContactPage-Start.png)
+
 # 21-10-25
 
 ## Cdrama Index + Details
@@ -93,15 +106,12 @@ ik inzicht krijg in mijn kijkgedrag.
 
 ![List](images/SS-Cdrama-Show.png)
 
+## Tailwind CSS
 
-# 15-10-25
-## Create Form
-### Formulier gemaakt en werkend
-![CreateForm](images/SS-CreateForm.png)
-![CreateForm](images/SS-CreateForm-Submitted.png)
+### Create + Edit/Update
 
-## Contact Form - Start
-![ContactForm](images/SS-ContactPage-Start.png)
+![List](images/SS-CSS-Create.png)
+![List](images/SS-CSS-Edit.png)
 
 
 
