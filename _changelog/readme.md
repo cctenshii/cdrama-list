@@ -113,6 +113,27 @@ ik inzicht krijg in mijn kijkgedrag.
 ![List](images/SS-CSS-Create.png)
 ![List](images/SS-CSS-Edit.png)
 
+# 28-10-25
 
+## User Roles
+
+### Admin
+
+As admin you have the view, edit and delete buttons available. As well as the Add Cdrama button.
+
+![List](images/SS-Admin-Index.png)
+![List](images/SS-Admin-Overview.png)
+
+### Logged In User
+
+As logged in user you have the view button available. As well as the Add Cdrama button.
+
+![List](images/SS-LoggedIn-Index.png)
+
+### Not Logged In User
+
+As a not logged in user you only have the view button available.
+
+![List](images/SS-NonLoggedIn-Index.png)
 
 
