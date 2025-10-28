@@ -27,6 +27,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/cdramas', [App\Http\Controllers\AdminCdramaController::class, 'index'])
+        ->name('admin.cdramas.index');
+    Route::post('/admin/cdramas/{cdrama}/toggle', [App\Http\Controllers\AdminCdramaController::class, 'togglePublic'])
+        ->name('admin.cdramas.toggle');
+});
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -1,11 +1,45 @@
 <x-app-layout>
-    <div class="flex justify-between items-center mb-6">
+    <div class="pl-4 pr-4 flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">Cdramas List</h1>
-        <a href="{{ route('cdramas.create') }}"
-           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            Add Cdrama
-        </a>
+        @auth
+            {{-- Show "Add" only for logged in users (Admin or User) --}}
+            @if(Auth::user()->role->name === 'Admin' || Auth::user()->role->name === 'User')
+                <a href="{{ route('cdramas.create') }}"
+                   class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400">
+                    Add Cdrama
+                </a>
+            @endif
+        @endauth
+
     </div>
+
+    <div class="mb-6 flex flex-col md:flex-row md:items-center md:space-x-4 space-y-2 md:space-y-0">
+        <form method="GET" action="{{ route('cdramas.index') }}"
+              class="flex flex-col md:flex-row md:items-center md:space-x-2 space-y-2 md:space-y-0 w-full px-4">
+
+            {{-- Search --}}
+            <input type="text" name="search" placeholder="Search Cdramas..." value="{{ request('search') }}"
+                   class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 flex-1">
+
+            {{-- Genre Filter --}}
+            <select name="genre_id"
+                    class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option value="">All Genres</option>
+                @foreach($genres as $genre)
+                    <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>
+                        {{ $genre->name }}
+                    </option>
+                @endforeach
+            </select>
+
+            {{-- Submit --}}
+            <button type="submit"
+                    class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400 transition">
+                Filter
+            </button>
+        </form>
+    </div>
+
 
     {{-- Grid container for 2-3 cards per row --}}
     <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -37,24 +71,33 @@
                     </div>
 
                     <div class="flex space-x-2 mt-4">
+                        {{-- View button: visible to everyone --}}
                         <a href="{{ route('cdramas.show', $cdrama) }}"
-                           class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+                           class="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-300">
                             View
                         </a>
-                        <a href="{{ route('cdramas.edit', $cdrama->id) }}"
-                           class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                            Edit
-                        </a>
-                        <form action="{{ route('cdramas.destroy', $cdrama->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                    onclick="return confirm('Are you sure you want to delete this Cdrama?')"
-                                    class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                Delete
-                            </button>
-                        </form>
+
+                        {{-- If logged in --}}
+                        @auth
+                            {{-- For Admin: show everything --}}
+                            @if(Auth::user()->role->name === 'Admin')
+                                <a href="{{ route('cdramas.edit', $cdrama->id) }}"
+                                   class="bg-green-300 text-white px-3 py-1 rounded hover:bg-green-200">
+                                    Edit
+                                </a>
+                                <form action="{{ route('cdramas.destroy', $cdrama->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                            onclick="return confirm('Are you sure you want to delete this Cdrama?')"
+                                            class="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-300">
+                                        Delete
+                                    </button>
+                                </form>
+                            @endif
+                        @endauth
                     </div>
+
                 </div>
 
             </div>
