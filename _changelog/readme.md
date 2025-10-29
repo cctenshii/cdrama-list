@@ -136,4 +136,11 @@ As a not logged in user you only have the view button available.
 
 ![List](images/SS-NonLoggedIn-Index.png)
 
+# 29-10-25
+
+### Admin
+
+Put the edit and delete button in the admin overview page.
+![List](images/SS-Admin-Actions.png)
+
 

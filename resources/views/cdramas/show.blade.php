@@ -16,10 +16,6 @@
                     <img src="{{ asset('storage/' . $cdrama->image) }}"
                          alt="{{ $cdrama->name }}"
                          class="w-64 h-auto md:h-96 object-cover rounded shadow">
-                @elseif (file_exists(public_path("images/{$cdrama->id}.jpg")))
-                    <img src="{{ asset("images/{$cdrama->id}.jpg") }}"
-                         alt="{{ $cdrama->name }}"
-                         class="w-64 h-auto md:h-96 object-cover rounded shadow">
                 @else
                     <img src="{{ asset('images/placeholder.jpg') }}"
                          alt="No image available"

@@ -30,10 +30,10 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/cdramas', [App\Http\Controllers\AdminCdramaController::class, 'index'])
         ->name('admin.cdramas.index');
+
     Route::post('/admin/cdramas/{cdrama}/toggle', [App\Http\Controllers\AdminCdramaController::class, 'togglePublic'])
         ->name('admin.cdramas.toggle');
 });
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

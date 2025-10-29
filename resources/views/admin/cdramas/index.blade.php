@@ -12,7 +12,8 @@
             <th class="px-4 py-2">Year</th>
             <th class="px-4 py-2">Episodes</th>
             <th class="px-4 py-2">Genre</th>
-            <th class="px-4 py-2">Public</th>
+            <th class="px-4 py-2">Private</th>
+            <th class="px-4 py-2">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -26,13 +27,33 @@
                     <form method="POST" action="{{ route('admin.cdramas.toggle', $cdrama) }}">
                         @csrf
                         <label class="relative inline-flex items-center cursor-pointer">
-                            <input type="checkbox" name="public" onchange="this.form.submit()"
-                                   class="sr-only peer" {{ $cdrama->public ? 'checked' : '' }}>
+                            <input type="checkbox" name="public"
+                                   onchange="this.form.submit()"
+                                   class="sr-only peer"
+                                {{ $cdrama->public ? '' : 'checked' }}>
                             <div
-                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-indigo-500 rounded-full peer peer-checked:bg-green-500 transition-all"></div>
+                                class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-red-500 transition-all"></div>
                             <div
                                 class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-md transform transition peer-checked:translate-x-5"></div>
+                            <span class="ml-2">{{ $cdrama->public ? 'Public' : 'Private' }}</span>
                         </label>
+                    </form>
+                </td>
+
+                {{-- Edit & Delete Buttons --}}
+                <td class="px-4 py-2 flex space-x-2">
+                    <a href="{{ route('cdramas.edit', $cdrama->id) }}"
+                       class="bg-green-300 text-white px-3 py-1 rounded hover:bg-green-200">
+                        Edit
+                    </a>
+                    <form action="{{ route('cdramas.destroy', $cdrama->id) }}" method="POST"
+                          onsubmit="return confirm('Are you sure you want to delete this Cdrama?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                                class="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-300">
+                            Delete
+                        </button>
                     </form>
                 </td>
             </tr>

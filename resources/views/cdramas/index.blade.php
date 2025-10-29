@@ -40,6 +40,14 @@
         </form>
     </div>
 
+    {{-- Not Found Message --}}
+    @if($cdramas->isEmpty())
+        <div class="text-center text-gray-500 mt-6">
+            No Cdramas found matching your search or filters.
+        </div>
+    @endif
+
+
 
     {{-- Grid container for 2-3 cards per row --}}
     <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -76,26 +84,6 @@
                            class="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-300">
                             View
                         </a>
-
-                        {{-- If logged in --}}
-                        @auth
-                            {{-- For Admin: show everything --}}
-                            @if(Auth::user()->role->name === 'Admin')
-                                <a href="{{ route('cdramas.edit', $cdrama->id) }}"
-                                   class="bg-green-300 text-white px-3 py-1 rounded hover:bg-green-200">
-                                    Edit
-                                </a>
-                                <form action="{{ route('cdramas.destroy', $cdrama->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                            onclick="return confirm('Are you sure you want to delete this Cdrama?')"
-                                            class="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-300">
-                                        Delete
-                                    </button>
-                                </form>
-                            @endif
-                        @endauth
                     </div>
 
                 </div>
