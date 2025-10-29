@@ -16,20 +16,29 @@
                 <label class="block font-semibold mb-1" for="name">Title:</label>
                 <input type="text" name="name" id="name" value="{{ old('name') }}"
                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                @error('name')
+                <p style="color:red;">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Release Year --}}
             <div>
                 <label class="block font-semibold mb-1" for="year">Release Year:</label>
-                <input type="text" name="year" id="year" value="{{ old('year') }}"
+                <input type="number" name="year" id="year" value="{{ old('year') }}"
                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                @error('year')
+                <p style="color:red;">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Episodes --}}
             <div>
                 <label class="block font-semibold mb-1" for="episodes">Episodes:</label>
-                <input type="text" name="episodes" id="episodes" value="{{ old('episodes') }}"
+                <input type="number" name="episodes" id="episodes" value="{{ old('episodes') }}"
                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                @error('episodes')
+                <p style="color:red;">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Genre --}}
@@ -44,6 +53,9 @@
                         </option>
                     @endforeach
                 </select>
+                @error('genre')
+                <p style="color:red;">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Summary --}}
@@ -51,6 +63,9 @@
                 <label class="block font-semibold mb-1" for="summary">Summary:</label>
                 <textarea name="summary" id="summary" rows="4"
                           class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">{{ old('summary') }}</textarea>
+                @error('summary')
+                <p style="color:red;">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Image --}}

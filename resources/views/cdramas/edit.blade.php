@@ -70,6 +70,22 @@
                 <input type="file" name="image" id="image" accept="image/*" class="w-full text-gray-600">
             </div>
 
+            {{-- Added By --}}
+            <div>
+                <label class="block font-semibold mb-1" for="created_by">Added By:</label>
+                <select name="created_by" id="created_by"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">-- Select User --</option>
+                    @foreach($users as $user)
+                        <option
+                            value="{{ $user->id }}" {{ old('created_by', $cdrama->created_by) == $user->id ? 'selected' : '' }}>
+                            {{ $user->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+
             {{-- Submit --}}
             <div>
                 <button type="submit"

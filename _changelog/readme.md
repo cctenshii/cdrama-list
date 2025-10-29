@@ -138,9 +138,17 @@ As a not logged in user you only have the view button available.
 
 # 29-10-25
 
+Added an added by to each cdrama.
+![List](images/SS-Show-AddedBy.png)
+
 ### Admin
 
 Put the edit and delete button in the admin overview page.
 ![List](images/SS-Admin-Actions.png)
+
+Added an 'added by' column to the admin overview.
+![List](images/SS-Admin-AddedBy.png)
+
+
 
 

@@ -32,9 +32,15 @@
                     <p class="text-lg"><span class="font-semibold">Episodes:</span> {{ $cdrama->episodes }}</p>
                     <p class="text-lg"><span class="font-semibold">Genre:</span> {{ $cdrama->genre->name ?? 'Unknown' }}
                     </p>
+
+                    @if($cdrama->creator)
+                        <p class="text-lg text-gray-600"><span
+                                class="font-semibold">Added by:</span> {{ $cdrama->creator->name }}</p>
+                    @endif
                 </div>
 
-                <p class="text-gray-700 leading-relaxed">{{ $cdrama->summary }}</p>
+
+                <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{ $cdrama->summary }}</p>
             </div>
 
         </div>

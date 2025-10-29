@@ -23,7 +23,7 @@
 
             {{-- Genre Filter --}}
             <select name="genre_id"
-                    class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    class="border border-gray-300 rounded px-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">All Genres</option>
                 @foreach($genres as $genre)
                     <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>
@@ -34,7 +34,7 @@
 
             {{-- Submit --}}
             <button type="submit"
-                    class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400 transition">
+                    class="bg-gray-600 text-white px-8 py-2 rounded hover:bg-gray-400 transition">
                 Filter
             </button>
         </form>
@@ -76,6 +76,11 @@
                         <p class="text-gray-600 mb-1">Release: {{ $cdrama->year }}</p>
                         <p class="text-gray-600 mb-1">Episodes: {{ $cdrama->episodes }}</p>
                         <p class="text-gray-600 mb-2">Genre: {{ $cdrama->genre->name ?? 'Unknown' }}</p>
+
+                        @if($cdrama->creator)
+                            <p class="text-gray-500 text-sm">Added by: {{ $cdrama->creator->name }}</p>
+                        @endif
+
                     </div>
 
                     <div class="flex space-x-2 mt-4">

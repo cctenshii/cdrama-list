@@ -12,6 +12,7 @@
             <th class="px-4 py-2">Year</th>
             <th class="px-4 py-2">Episodes</th>
             <th class="px-4 py-2">Genre</th>
+            <th class="px-4 py-2">Added By</th> {{-- 👈 Added this --}}
             <th class="px-4 py-2">Private</th>
             <th class="px-4 py-2">Actions</th>
         </tr>
@@ -23,6 +24,13 @@
                 <td class="px-4 py-2">{{ $cdrama->year }}</td>
                 <td class="px-4 py-2">{{ $cdrama->episodes }}</td>
                 <td class="px-4 py-2">{{ $cdrama->genre->name ?? 'Unknown' }}</td>
+
+                {{-- Added By Column --}}
+                <td class="px-4 py-2">
+                    {{ $cdrama->creator->name ?? 'Unknown' }}
+                </td>
+
+                {{-- Private/Public Toggle --}}
                 <td class="px-4 py-2">
                     <form method="POST" action="{{ route('admin.cdramas.toggle', $cdrama) }}">
                         @csrf
@@ -43,7 +51,7 @@
                 {{-- Edit & Delete Buttons --}}
                 <td class="px-4 py-2 flex space-x-2">
                     <a href="{{ route('cdramas.edit', $cdrama->id) }}"
-                       class="bg-green-300 text-white px-3 py-1 rounded hover:bg-green-200">
+                       class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-400">
                         Edit
                     </a>
                     <form action="{{ route('cdramas.destroy', $cdrama->id) }}" method="POST"
