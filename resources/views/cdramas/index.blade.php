@@ -4,11 +4,20 @@
         @auth
             {{-- Show "Add" only for logged in users (Admin or User) --}}
             @if(Auth::user()->role->name === 'Admin' || Auth::user()->role->name === 'User')
-                <a href="{{ route('cdramas.create') }}"
-                   class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400">
-                    Add Cdrama
-                </a>
+                @if(Auth::user()->login_count >= 3)
+                    <a href="{{ route('cdramas.create') }}"
+                       class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-400">
+                        Add Cdrama
+                    </a>
+                @else
+                    <button disabled
+                            class="bg-gray-300 text-gray-600 px-4 py-2 rounded cursor-not-allowed"
+                            title="You need to log in at least 3 times to add a CDrama">
+                        Add Cdrama
+                    </button>
+                @endif
             @endif
+
         @endauth
 
     </div>
@@ -23,7 +32,7 @@
 
             {{-- Genre Filter --}}
             <select name="genre_id"
-                    class="border border-gray-300 rounded px-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    class="border border-gray-300 rounded pr-10 pl-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 <option value="">All Genres</option>
                 @foreach($genres as $genre)
                     <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>
