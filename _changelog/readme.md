@@ -149,6 +149,6 @@ Put the edit and delete button in the admin overview page.
 Added an 'added by' column to the admin overview.
 ![List](images/SS-Admin-AddedBy.png)
 
-
-
+# 02-11-25
+I added a login counter so the users have to be logged in 3 times to be able to add a new cdrama.
 
