@@ -17,7 +17,6 @@
                     </button>
                 @endif
             @endif
-
         @endauth
 
     </div>
